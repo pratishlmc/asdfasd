@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Dictionary</title>
+	</head>
+	<body>
+		<div class="container">
+			<span class="header">Dictionary</span>
+
+			<div class="search_box">
+				<img src="./assets/search.png" class="search_logo" alt="Search" />
+				<input id="search_box" placeholder="Search" type="text" required />
+				<img
+					src="./assets/close.png"
+					id="clearButton"
+					class="close_logo hide"
+					alt="Search"
+				/>
+			</div>
+
+			<div class="wrapper">
+				<span class="info-text multi-text"
+					>Type something and hit enter or press search to get meanings.</span
+				>
+
+				<ul>
+					<div class="intro_box">
+						<div style="display: flex; flex-direction: column; gap: 1px">
+							<span class="the_word"></span>
+							<span class="multi-text">
+								<span id="pos"></span>
+								<span id="phonetic"></span>
+							</span>
+						</div>
+						<img
+							src="./assets/sound.png"
+							width="30px"
+							height="30px"
+							style="cursor: pointer"
+							alt="Search"
+						/>
+					</div>
+					<hr />
+					<div class="content_box">
+						<div
+							style="
+								display: flex;
+								justify-content: space-between;
+								align-items: center;
+							"
+						>
+							<span class="sub-title">Meaning</span>
+							<a>Show all</a>
+						</div>
+						<ul class="meaning">__</ul>
+					</div>
+					<!-- <hr />
+					<div class="content_box">
+						<span class="sub-title">Example</span>
+						<span class="multi-text example">Music makes me feel happy.</span>
+					</div>
+					<hr /> -->
+					<!-- <div class="content_box">
+						<span class="sub-title">Synonyms</span>
+						<span class="multi-text synonyms"
+							>cheerful, content, delighted, elated, exultant, glad, joyful
+							etc.</span
+						>
+					</div> -->
+				</ul>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
