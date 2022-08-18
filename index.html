@@ -11,12 +11,17 @@
 			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
 			rel="stylesheet"
 		/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			  rel="stylesheet">
 		<title>Dictionary</title>
 	</head>
 	<body>
+	<div class="menu-container">
+			<span class="material-icons">menu</span>
+			<span>Menu</span>
+	</div>
 		<div class="container">
 			<span class="header">Dictionary</span>
-
 			<div class="search_box">
 				<img src="./assets/search.png" class="search_logo" alt="Search" />
 				<input id="search_box" placeholder="Search" type="text" required />
@@ -42,13 +47,16 @@
 								<span id="phonetic"></span>
 							</span>
 						</div>
+
 						<img
+								id="audioBtn"
 							src="./assets/sound.png"
 							width="30px"
 							height="30px"
 							style="cursor: pointer"
 							alt="Search"
 						/>
+
 					</div>
 					<hr />
 					<div class="content_box">
@@ -64,19 +72,6 @@
 						</div>
 						<ul class="meaning">__</ul>
 					</div>
-					<!-- <hr />
-					<div class="content_box">
-						<span class="sub-title">Example</span>
-						<span class="multi-text example">Music makes me feel happy.</span>
-					</div>
-					<hr /> -->
-					<!-- <div class="content_box">
-						<span class="sub-title">Synonyms</span>
-						<span class="multi-text synonyms"
-							>cheerful, content, delighted, elated, exultant, glad, joyful
-							etc.</span
-						>
-					</div> -->
 				</ul>
 			</div>
 		</div>

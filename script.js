@@ -2,13 +2,12 @@ const search_input = document.querySelector('input')
 const infoText = document.querySelector(".info-text")
 const wrapper = document.querySelector(".wrapper")
 const meaning = document.querySelector(".meaning")
-const example = document.querySelector(".example")
-const synonyms = document.querySelector(".synonyms")
 const partOfSpeech = document.querySelector("#pos")
 const phonetic = document.querySelector("#phonetic")
 const the_word = document.querySelector(".the_word")
 const showAll = document.querySelector("a")
 const clearBtn = document.querySelector("#clearButton")
+const audioBtn = document.querySelector("#audioBtn")
 
 function data(result, word) {
     if (!result[0].shortdef) {
@@ -17,22 +16,23 @@ function data(result, word) {
     }
     else {
         let showAllMeanings = false
-        showAll.innerHTML = "Show all"
 
+        showAll.innerHTML = "Show all"
         wrapper.classList.add('active')
         let item = result[0]
-        console.log(item)
 
+        // console.log(item)
         the_word.innerHTML = word
         partOfSpeech.innerHTML = item.fl
         phonetic.innerHTML = `/${item.hwi.prs[0].mw}/`
-        meaning.innerHTML = `<span class="multi-text">${item.shortdef[0]}</span>`
 
+        meaning.innerHTML = `<span class="multi-text">${item.shortdef[0]}</span>`
         if (item.shortdef.length <= 1) {
             showAll.style.display = "none"
         }
         else {
             showAll.style.display = "block"
+
         }
 
         showAll.addEventListener('click', function (e) {
@@ -49,19 +49,19 @@ function data(result, word) {
                 meaning.innerHTML = `<span class="multi-text">${item.shortdef[0]}</span>`
             }
         })
-
     }
-}
 
+}
 function fetchApi(word) {
     infoText.style.color = "#000000"
     infoText.innerHTML = `Searching meaning for <span>"${word}"</span>`
-    let url = `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=bb3685a4-1bc4-4e6f-b9c6-d2ee454a2700`
 
+    let url = `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=bb3685a4-1bc4-4e6f-b9c6-d2ee454a2700`
     fetch(url)
         .then(response => response.json())
         .then(result => data(result, word))
-        .catch(err => console.error(err));
+        // .catch(err => console.error(err));
+
 }
 
 search_input.addEventListener('keyup', function (e) {
@@ -74,3 +74,7 @@ clearBtn.addEventListener('click', function () {
     search_input.value = ""
 })
 
+audioBtn.addEventListener('click', function (){
+    let utterance = new SpeechSynthesisUtterance(the_word.innerHTML);
+    speechSynthesis.speak(utterance);
+})
