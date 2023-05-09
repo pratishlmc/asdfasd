@@ -60,8 +60,7 @@ function fetchApi(word) {
     fetch(url)
         .then(response => response.json())
         .then(result => data(result, word))
-        // .catch(err => console.error(err));
-
+    // .catch(err => console.error(err));
 }
 
 search_input.addEventListener('keyup', function (e) {
@@ -74,7 +73,25 @@ clearBtn.addEventListener('click', function () {
     search_input.value = ""
 })
 
-audioBtn.addEventListener('click', function (){
+audioBtn.addEventListener('click', function () {
     let utterance = new SpeechSynthesisUtterance(the_word.innerHTML);
     speechSynthesis.speak(utterance);
 })
+
+async function query(data) {
+    const response = await fetch(
+        "https://api-inference.huggingface.co/models/facebook/fastspeech2-en-ljspeech",
+        {
+            headers: { Authorization: "Bearer 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" },
+            method: "POST",
+            body: JSON.stringify(data),
+        }
+    );
+    const result = await response.json();
+    return result;
+}
+
+query({ "inputs": "The answer to the universe is 42" }).then((response) => {
+    console.log(JSON.stringify(response));
+});
+

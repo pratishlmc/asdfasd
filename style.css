@@ -1,10 +1,14 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url("./assets/background.jpg");
-	background-size: cover;
 }
 
 hr {
@@ -198,4 +202,30 @@ input {
 	cursor: pointer;
 	backdrop-filter: blur(5px);
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.popup-menu {
+	position: absolute;
+	min-height: 20%;
+	min-width: 20%;
+	top: 60px;
+	right: 10px;
+	background-color: white;
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1px;
+	padding: 20px;
+}
+
+.theme_display {
+	height: 50px;
+	width: 50px;
+	background-color: #dadada;
+	border-radius: 5px;
+	/*outline: black;*/
+}
+
+.active_theme {
+	border: 3px solid skyblue;
 }
